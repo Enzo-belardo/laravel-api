@@ -1,0 +1,27 @@
+@import '~bootstrap/scss/bootstrap';
+.confirm,
+.forgot,
+.login,
+.view,
+.register,
+.reset,
+.dashboard,
+.login{
+    height: 90vh;
+}
+
+nav{
+    height: 10vh;
+}
+
+.bg{
+    background-color: rgb(122, 176, 180);
+}
+
+.bg-app{
+    background-color: rgb(10, 72, 98);
+}
+.text-jumbo{
+    color: rgb(71, 164, 161) ;
+
+}
