@@ -4,8 +4,7 @@
 <div class="container">
     @include('admin.projects.partials.create_edit', [
         'method' => 'POST',
-        'route' => 'admin.project.store',
-        'project' => $project,
+        'route' => 'admin.projects.store',
     ])
 </div>
 

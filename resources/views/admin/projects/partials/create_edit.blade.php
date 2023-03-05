@@ -1,5 +1,6 @@
-<form class="p-5" action="{{route('admin.projects.store')}}" method="POST" enctype="multipart/form-data">
+<form class="p-5" action="{{ route($route , $project) }}" method="POST" enctype="multipart/form-data">
     @csrf
+    @method($method)
 
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -27,19 +28,19 @@
         </select>
     </div> 
 
-    <div class="row form-group">
+    <div class="row form-group mb-3">
+      <div class="col-12">
         <p>Tecnologie</p>
-        <div class="col-12">
-            @foreach ($tecnologies as $tecnology)
-            <input type="checkbox" class="form-check-input" name="tecnologies[]" value="{{ $tecnology->id }}">
-            @if ($errors->any())
-              @checked(in_array($tecnology->id, old('tecnologies', [])))
-            @else
-              @checked($project->tecnologies->contains($tecnology->id))
-            @endif
-            <label class="form-check-label">{{ $tecnology->tecnology }}</label>
-            @endforeach
-        </div>
+        @foreach ($tecnologies as $tecnology)
+          <input type="checkbox" class="form-check-input" name="tecnologies[]" value="{{ $tecnology->id }}">
+          @if ($errors->any())
+            @checked(in_array($tecnology->id, old('tecnologies', [])))
+          @else
+            @checked($project->tecnologies->contains($tecnology->id))
+           @endif
+          <label class="form-check-label">{{ $tecnology->tecnology }}</label>
+        @endforeach
+      </div>
     </div>
 
      <div class="mb-3">
