@@ -23,8 +23,8 @@
             <tr class="text-dark ">
                 <th scope="col">id</th>
                 <th scope="col">Titolo</th>
-                <th scope="col">Tecnologie</th>
                 <th scope="col">Tipo</th>
+                <th scope="col">Tecnologie</th>
                 <th scope="col">Anno</th>
                 <th scope="col"><i class="fa-sharp fa-solid fa-ellipsis"></i></th>
             </tr>
@@ -35,8 +35,14 @@
             <tr class="text-dark">
                 <td>{{ $project->id }}</td>
                 <td>{{ $project->title }}</td>
-                <td>{{ $project->programming_language }}</td>
-                <td>{{ $project->type_id }}</td>
+                <td>{{ $project->type->type ?? 'no type' }}</td>
+                <td>
+                    @forelse ($project->tecnologies as $tecnology)
+                        {{ $tecnology->tecnology }},
+                    @empty
+                        no tecnology
+                    @endforelse
+                </td>
                 <td>{{$project->year_project}}</td>
                 <td>
                  <a class = "btn btn-sm btn-primary " href=" {{ route ( 'admin.projects.show' , $project->id ) }}" >Show</a>
