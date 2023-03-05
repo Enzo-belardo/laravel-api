@@ -17,10 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title', 200);
             $table->text('description');
-            $table->string('programming_language');
-            // $table->string('type', 20);
             $table->integer('year_project');
-            // $table->string('thumb');
             $table->timestamps();
         });
     }
