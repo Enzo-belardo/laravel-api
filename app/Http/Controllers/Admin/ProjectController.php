@@ -93,17 +93,18 @@ class ProjectController extends Controller
     public function update(Request $request, Project $project)
     {
 
-        $request->validate([
+        $data = $request->validate([
             'title' => 'required|min:2|max:100',
             'description' => 'required|string|min:10',
             'year_project' => 'required',
             'image' => 'required|image',
-            'type_id' => 'required|exists:types, id',
+            'type_id' => 'required|exists:types,id',
             'tecnologies' => 'array|exists:tecnologies,id'
         ]);
 
-        $data = $request->all();
         $project->update($data);
+        $project->tecnologies()->sync($data['tecnologies']);
+
         return redirect()->route('admin.projects.index', $project->id);
     }
 
