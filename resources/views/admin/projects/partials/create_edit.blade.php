@@ -29,15 +29,16 @@
     </div> 
 
     <div class="row form-group mb-3">
-      <div class="col-12">
+      <div class="tecnologies col-12">
         <p>Tecnologie</p>
         @foreach ($tecnologies as $tecnology)
-          <input type="checkbox" class="form-check-input" name="tecnologies[]" value="{{ $tecnology->id }}">
+          <input type="checkbox" class="form-check-input" name="tecnologies[]" value="{{ $tecnology->id }}"
           @if ($errors->any())
             @checked(in_array($tecnology->id, old('tecnologies', [])))
           @else
             @checked($project->tecnologies->contains($tecnology->id))
-           @endif
+          @endif
+           >
           <label class="form-check-label">{{ $tecnology->tecnology }}</label>
         @endforeach
       </div>
