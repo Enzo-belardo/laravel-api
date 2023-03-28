@@ -27,7 +27,7 @@
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                     <div class="logo_laravel text-light">
                         <h3>
-                            Boolfolio
+                            Boolfolio Admin
                         </h3>
                     </div>
                     {{-- config('app.name', 'Laravel') --}}
